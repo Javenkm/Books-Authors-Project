@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author View</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>{{ author.first_name }} {{ author.last_name }}</h2>
+        <h4>ID: {{ author.id }}</h4>
+        <h4>Notes: {{ author.notes }}</h4>
+        <h4>Authors:
+            <ul>
+                {% for book in author.books.all %}
+                <li>{{ book.title }}</li>
+                {% endfor %}
+                <select name="book_id" id="">
+                    {% for book in books %}
+                    <option value="{{ book.id }}">{{ book.title }}</option>
+                    {% endfor %}
+                </select>
+                <button>Add Book</button>
+            </ul>
+        </h4>
+    </div>
+</body>
+
+</html>
